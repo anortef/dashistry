@@ -6,8 +6,8 @@ export class RegistryController {
   constructor(private readonly registryService: RegistryService) {}
 
   @Get('_catalog')
-  listRepositories(): string {
-    return JSON.stringify(this.registryService.listRepositories());
+  async listRepositories(): Promise<string> {
+    return JSON.stringify(await this.registryService.listRepositories());
   }
 
 }

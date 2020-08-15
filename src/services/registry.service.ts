@@ -1,12 +1,11 @@
+import AxiosStatic from 'axios'
 import { Injectable } from '@nestjs/common';
+import settings from '../settings';
 
 @Injectable()
 export class RegistryService {
-  listRepositories(): Array<string> {
-    return [
-      "alpine",
-      "debian",
-      "ubuntu"
-    ]
+  async listRepositories(): Promise<Array<string>> {
+    const response = await AxiosStatic.get(settings.registry.url + '/v2/_catalog')
+    return response.data.repositories;
   }
 }
