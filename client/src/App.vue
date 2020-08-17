@@ -1,5 +1,12 @@
 <template>
   <v-app id="inspire">
+    <v-navigation-drawer
+      v-model="drawer"
+      app
+      clipped
+    >
+      <RepoList/>
+    </v-navigation-drawer>
     <v-main>
       <v-container
         class="fill-height"
@@ -9,24 +16,19 @@
           align="center"
           justify="center"
         >
-        <HelloWorld msg="Welcome to Your Vue.js App"/>
         </v-row>
       </v-container>
     </v-main>
-
-    <v-footer app>
-      <span>&copy; {{ new Date().getFullYear() }}</span>
-    </v-footer>
   </v-app>
 </template>
 
 <script>
-  import HelloWorld from './components/HelloWorld';
+  import RepoList from './components/RepoList';
   export default {
     name: 'App',
 
     components: {
-      HelloWorld,
+      RepoList,
     },
 
     props: {

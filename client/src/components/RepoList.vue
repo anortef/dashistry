@@ -1,7 +1,13 @@
 <template>
-  <div class="hello">
-    <h1>{{ msg }}</h1>
-    <v-btn v-on:click="getRepos">Get repo list</v-btn>
+  <div>
+    <v-card v-for="repo in msg" :key="repo"
+    tile
+    >
+      <v-hover>
+        <v-card-text :elevation="hover ? 12 : 2" :class="{ 'on-hover': hover }">{{ repo }}</v-card-text>
+      </v-hover>
+    </v-card>
+  </div>
 </template>
 
 <script>
@@ -12,12 +18,15 @@ export default {
       this.msg = await response.json();
     }
   },
-  name: 'HelloWorld',
+  beforeMount(){
+    this.getRepos()
+  },
+  name: 'RepoList',
   props: {
     msg: {
       type: Array,
       default: function() {
-        return ['kek'];
+        return [''];
       }
     }
   }
