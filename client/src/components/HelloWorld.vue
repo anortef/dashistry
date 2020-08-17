@@ -1,7 +1,7 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
-    <button v-on:click="getRepos">Get repo list</button>
+    <v-btn v-on:click="getRepos">Get repo list</v-btn>
 </template>
 
 <script>
