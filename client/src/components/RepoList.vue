@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-card v-for="repo in msg" :key="repo" tile link>
+    <v-card v-for="repo in msg.repositories" :key="repo" tile link>
       <v-card-text :elevation="hover ? 12 : 2" :class="{ 'on-hover': hover }">{{ repo }}</v-card-text>
     </v-card>
   </div>

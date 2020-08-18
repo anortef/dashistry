@@ -3,6 +3,7 @@ import { RegistryController } from './registry.controller';
 import { RegistryService } from '../services/registry.service';
 import settings from '../settings';
 import nock from 'nock';
+
 describe('RegistryController', () => {
   let registryController: RegistryController;
 
@@ -20,7 +21,7 @@ describe('RegistryController', () => {
   });
 
   it('list repositories', async () => {
-    const expected = '["alpine","debian","ubuntu"]';
+    const expected = JSON.stringify({repositories:["alpine","debian","ubuntu"]});
     expect(await registryController.listRepositories()).toBe(expected);
   })
 });
